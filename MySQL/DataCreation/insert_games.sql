@@ -1,8 +1,7 @@
-CREATE PROCEDURE `insert_games` (IN gameCount INT)
+CREATE PROCEDURE `insert_games` (IN gamei INT, IN gameCount INT)
 BEGIN
     DECLARE hScore INT DEFAULT 0;
     DECLARE gScore INT DEFAULT 0;
-    DECLARE gamei INT DEFAULT 0;
 
     create_game: LOOP
         IF gamei >= gameCount THEN

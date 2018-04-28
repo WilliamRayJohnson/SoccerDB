@@ -1,4 +1,4 @@
-CREATE PROCEDURE `insert_host_win` (IN id VARCHAR(45), IN hScore INT, IN gScore INT)
+CREATE PROCEDURE `insert_host_win` (IN id CHAR(45), IN hScore INT, IN gScore INT)
 BEGIN
     INSERT INTO `game` (`Game_ID`, `Host_team`, `Guest_team`, `Date`, `H_score`, `G_score`, `Stadium_ID`, `Winner`, `Loser`)
     SELECT id, ht.Team_ID, gt.Team_ID, CURRENT_TIMESTAMP - INTERVAL FLOOR(RAND() * 1460) DAY, hScore, gScore, s.Stadium_ID, ht.Team_ID, gt.Team_ID
