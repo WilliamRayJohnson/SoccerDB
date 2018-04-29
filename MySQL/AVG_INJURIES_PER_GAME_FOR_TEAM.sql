@@ -14,7 +14,7 @@ SELECT MONTH(cti.game_date), YEAR(cti.game_date), AVG(cti.total_injuries)
                     JOIN injury i ON p.FIFA_id = i.FIFA_id
                     JOIN game g ON t.team_id = g.guest_team
                 ) AS ti
+            WHERE ti.team_name = ?
             GROUP BY ti.game_date
-            HAVING ti.team_name = ?
         ) AS cti
     GROUP BY MONTH(cti.game_date), YEAR(cti.game_date)
