@@ -1,4 +1,4 @@
-CREATE PROCEDURE `insert_injuries` (IN count INT)
+CREATE PROCEDURE `insert_injuries` (IN count INT, IN maxGames INT)
 BEGIN
     DECLARE injuryi INT DEFAULT 0;
     SET injuryi = 0;
@@ -12,7 +12,7 @@ BEGIN
                     FROM (
                         SELECT *
                             FROM game
-                            ORDER BY RAND()
+                            WHERE Game_ID = CAST(FLOOR(RAND() * maxGames) AS CHAR(45))
                             LIMIT 1
                         ) AS g
                     JOIN players_of_game pog ON pog.Game_ID = g.Game_ID
